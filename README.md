@@ -131,13 +131,6 @@ pip install streamlit==1.28.0 altair==4.2.2
 ### Model Loading Issues
 Ensure all `.pkl` and `.h5` files are in the same directory as `app.py`
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
