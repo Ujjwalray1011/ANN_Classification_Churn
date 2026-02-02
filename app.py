@@ -19,6 +19,7 @@ st.markdown("""
     background-color: #262730;
     padding: 25px;
     border-radius: 15px;
+    margin-top: 25px;
     margin-bottom: 20px;
 }
 div.stButton > button {
@@ -55,7 +56,7 @@ Artificial Neural Network (ANN)
 
 ---
 
-**👨‍💻 Developer**
+**👨‍💻 Developer**  
 Ujjwal  
 ML + Full Stack Project
 """)
@@ -76,16 +77,15 @@ with open('scaler.pkl', 'rb') as file:
 
 # ================= HEADER =================
 st.markdown("""
-<h1 style='text-align:center; color:#6C63FF;'>
+<h1 style='text-align:center; color:#6C63FF; margin-bottom:5px;'>
 Customer Churn Prediction
 </h1>
-<p style='text-align:center; font-size:18px;'>
+<p style='text-align:center; font-size:18px; margin-top:0; margin-bottom:0;'>
 ANN based Machine Learning Web App
 </p>
 """, unsafe_allow_html=True)
 
 # ================= INPUT CARD =================
-st.markdown("<div class='card'>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -142,7 +142,7 @@ if st.button("🔮 Predict Churn"):
 
     st.subheader("📈 Prediction Result")
     st.progress(float(prediction_proba))
-    st.write(f"**Churn Probability:** `{prediction_proba:.2f}`")
+    st.write(f"**Churn Probability:** {prediction_proba:.2f}")
 
     if prediction_proba > 0.5:
         st.error("❌ The customer is likely to churn")
