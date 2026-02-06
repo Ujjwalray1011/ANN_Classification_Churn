@@ -244,14 +244,15 @@ if page == "Home":
         """)
     
     with col2:
-        st.markdown("### Key Features")
-        st.markdown("""
-        • **Real-time Predictions**: Instant churn probability
-        • **SHAP Explanations**: Understand model decisions
-        • **Interactive Dashboard**: Visualize customer data
-        • **Batch Analysis**: Process multiple customers
-        • **Export Reports**: Download predictions and insights
-        """)
+     st.markdown("### Key Features")
+     st.markdown("""
+    - **Real-time Predictions**: Instant churn probability  
+    - **SHAP Explanations**: Understand model decisions  
+    - **Interactive Dashboard**: Visualize customer data  
+    - **Batch Analysis**: Process multiple customers  
+    - **Export Reports**: Download predictions and insights  
+    """)
+ 
     
     st.markdown("---")
     st.info("Use the sidebar to navigate between different sections of the application")
