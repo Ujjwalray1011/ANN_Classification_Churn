@@ -77,6 +77,18 @@ st.markdown("""
     .sidebar .sidebar-content {
         background-color: #f8f9fa;
     }
+    
+    /* Feature card hover animation */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .feature-card-wrapper:hover > div {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -99,49 +111,121 @@ def load_model_and_encoders():
 model, label_encoder_gender, onehot_encoder_geo, scaler = load_model_and_encoders()
 
 # Sidebar navigation
-st.sidebar.title("🎯 Navigation")
+st.sidebar.title("Navigation")
 page = st.sidebar.radio(
     "Select Page",
-    ["🏠 Home", "🔮 Prediction", "📊 SHAP Analysis", "📈 Analytics", "ℹ️ About"]
+    ["Home", "Prediction", "SHAP Analysis", "Analytics", "About"]
 )
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
-### 📌 Quick Info
-- **Model Type**: Neural Network
-- **Accuracy**: ~86%
-- **Features**: 12
-- **Last Updated**: Feb 2026
+### Quick Info
+• **Model Type**: Neural Network  
+• **Accuracy**: ~86%  
+• **Features**: 12  
+• **Last Updated**: Feb 2026
 """)
 
 # HOME PAGE
-if page == "🏠 Home":
-    st.title("🏦 Customer Churn Prediction System")
+if page == "Home":
+    st.title("Customer Churn Prediction System")
     st.markdown("### Advanced Analytics Dashboard for Customer Retention")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.markdown("""
-        <div class="metric-card">
-            <h3>🎯 Accurate Predictions</h3>
-            <p>AI-powered model with 86% accuracy in predicting customer churn</p>
+        <div style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        ">
+            <div style="
+                width: 60px;
+                height: 60px;
+                background: rgba(255,255,255,0.2);
+                border-radius: 50%;
+                margin: 0 auto 1rem auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">🎯</div>
+            <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">Accurate Predictions</h3>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5;">
+                AI-powered model with 86% accuracy in predicting customer churn
+            </p>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
         st.markdown("""
-        <div class="metric-card">
-            <h3>📊 SHAP Analysis</h3>
-            <p>Explainable AI to understand what drives churn predictions</p>
+        <div style="
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        ">
+            <div style="
+                width: 60px;
+                height: 60px;
+                background: rgba(255,255,255,0.2);
+                border-radius: 50%;
+                margin: 0 auto 1rem auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">📊</div>
+            <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">SHAP Analysis</h3>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5;">
+                Explainable AI to understand what drives churn predictions
+            </p>
         </div>
         """, unsafe_allow_html=True)
     
     with col3:
         st.markdown("""
-        <div class="metric-card">
-            <h3>⚡ Real-time Insights</h3>
-            <p>Instant predictions and actionable recommendations</p>
+        <div style="
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        ">
+            <div style="
+                width: 60px;
+                height: 60px;
+                background: rgba(255,255,255,0.2);
+                border-radius: 50%;
+                margin: 0 auto 1rem auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">⚡</div>
+            <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">Real-time Insights</h3>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5;">
+                Instant predictions and actionable recommendations
+            </p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -150,7 +234,7 @@ if page == "🏠 Home":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("### 🚀 Getting Started")
+        st.markdown("### Getting Started")
         st.markdown("""
         1. Navigate to **Prediction** page
         2. Enter customer information
@@ -160,77 +244,77 @@ if page == "🏠 Home":
         """)
     
     with col2:
-        st.markdown("### 📊 Key Features")
+        st.markdown("### Key Features")
         st.markdown("""
-        - **Real-time Predictions**: Instant churn probability
-        - **SHAP Explanations**: Understand model decisions
-        - **Interactive Dashboard**: Visualize customer data
-        - **Batch Analysis**: Process multiple customers
-        - **Export Reports**: Download predictions and insights
+        • **Real-time Predictions**: Instant churn probability
+        • **SHAP Explanations**: Understand model decisions
+        • **Interactive Dashboard**: Visualize customer data
+        • **Batch Analysis**: Process multiple customers
+        • **Export Reports**: Download predictions and insights
         """)
     
     st.markdown("---")
-    st.info("👈 Use the sidebar to navigate between different sections of the application")
+    st.info("Use the sidebar to navigate between different sections of the application")
 
 # PREDICTION PAGE
-elif page == "🔮 Prediction":
-    st.title("🔮 Customer Churn Prediction")
+elif page == "Prediction":
+    st.title("Customer Churn Prediction")
     st.markdown("### Enter customer details to predict churn probability")
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.markdown("#### 📝 Customer Information")
+        st.markdown("#### Customer Information")
         
         # Create tabs for better organization
-        tab1, tab2, tab3 = st.tabs(["👤 Demographics", "💰 Financial", "📊 Account"])
+        tab1, tab2, tab3 = st.tabs(["Demographics", "Financial", "Account"])
         
         with tab1:
             col_a, col_b = st.columns(2)
             with col_a:
-                geography = st.selectbox('🌍 Geography', onehot_encoder_geo.categories_[0])
-                gender = st.selectbox('👤 Gender', label_encoder_gender.classes_)
+                geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
+                gender = st.selectbox('Gender', label_encoder_gender.classes_)
             with col_b:
-                age = st.slider('🎂 Age', 18, 92, 35)
-                tenure = st.slider('📅 Tenure (years)', 0, 10, 5)
+                age = st.slider('Age', 18, 92, 35)
+                tenure = st.slider('Tenure (years)', 0, 10, 5)
         
         with tab2:
             col_a, col_b = st.columns(2)
             with col_a:
-                credit_score = st.number_input('💳 Credit Score', 300, 850, 650, help="Credit score between 300 and 850")
-                balance = st.number_input('💰 Balance', 0.0, 250000.0, 50000.0, step=1000.0)
+                credit_score = st.number_input('Credit Score', 300, 850, 650, help="Credit score between 300 and 850")
+                balance = st.number_input('Balance', 0.0, 250000.0, 50000.0, step=1000.0)
             with col_b:
-                estimated_salary = st.number_input('💵 Estimated Salary', 0.0, 200000.0, 50000.0, step=1000.0)
-                num_of_products = st.slider('📦 Number of Products', 1, 4, 2)
+                estimated_salary = st.number_input('Estimated Salary', 0.0, 200000.0, 50000.0, step=1000.0)
+                num_of_products = st.slider('Number of Products', 1, 4, 2)
         
         with tab3:
             col_a, col_b = st.columns(2)
             with col_a:
-                has_cr_card = st.selectbox('💳 Has Credit Card', [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
+                has_cr_card = st.selectbox('Has Credit Card', [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
             with col_b:
-                is_active_member = st.selectbox('✅ Is Active Member', [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
+                is_active_member = st.selectbox('Is Active Member', [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
         
         st.markdown("---")
-        predict_button = st.button("🔮 Predict Churn Probability", use_container_width=True)
+        predict_button = st.button("Predict Churn Probability", use_container_width=True)
     
     with col2:
-        st.markdown("#### 📊 Input Summary")
+        st.markdown("#### Input Summary")
         st.info(f"""
         **Demographics**
-        - Geography: {geography}
-        - Gender: {gender}
-        - Age: {age} years
-        - Tenure: {tenure} years
+        • Geography: {geography}
+        • Gender: {gender}
+        • Age: {age} years
+        • Tenure: {tenure} years
         
         **Financial**
-        - Credit Score: {credit_score}
-        - Balance: ${balance:,.2f}
-        - Salary: ${estimated_salary:,.2f}
+        • Credit Score: {credit_score}
+        • Balance: ${balance:,.2f}
+        • Salary: ${estimated_salary:,.2f}
         
         **Account**
-        - Products: {num_of_products}
-        - Credit Card: {"Yes" if has_cr_card == 1 else "No"}
-        - Active: {"Yes" if is_active_member == 1 else "No"}
+        • Products: {num_of_products}
+        • Credit Card: {"Yes" if has_cr_card == 1 else "No"}
+        • Active: {"Yes" if is_active_member == 1 else "No"}
         """)
     
     if predict_button:
@@ -281,16 +365,16 @@ elif page == "🔮 Prediction":
         }
         
         st.markdown("---")
-        st.markdown("### 📊 Prediction Results")
+        st.markdown("### Prediction Results")
         
         # Display prediction with visual styling
         risk_class = "high-risk" if prediction_proba > 0.5 else "low-risk"
         risk_text = "High Risk" if prediction_proba > 0.5 else "Low Risk"
-        risk_emoji = "⚠️" if prediction_proba > 0.5 else "✅"
+        risk_icon = "⚠" if prediction_proba > 0.5 else "✓"
         
         st.markdown(f"""
         <div class="prediction-box {risk_class}">
-            <h1>{risk_emoji} {risk_text}</h1>
+            <h1>{risk_icon} {risk_text}</h1>
             <h2>Churn Probability: {prediction_proba:.1%}</h2>
             <p style="font-size: 1.2rem; margin-top: 1rem;">
                 {'This customer is likely to churn. Immediate action recommended.' if prediction_proba > 0.5 else 'This customer is likely to stay. Continue current engagement.'}
@@ -334,43 +418,52 @@ elif page == "🔮 Prediction":
         st.plotly_chart(fig, use_container_width=True)
         
         # Recommendations
-        st.markdown("### 💡 Recommendations")
+        st.markdown("### Recommendations")
         
         if prediction_proba > 0.5:
             st.error("**High Churn Risk Detected!**")
             st.markdown("""
             #### Immediate Actions:
-            - 🎁 **Offer Retention Incentives**: Special discounts or upgraded services
-            - 📞 **Personal Outreach**: Schedule a call with customer success team
-            - 🎯 **Targeted Campaign**: Include in high-risk retention campaign
-            - 📊 **Deep Dive Analysis**: Review customer journey and pain points
-            - 💰 **Loyalty Program**: Enroll in premium loyalty benefits
+                        
+            • **Offer Retention Incentives**: Special discounts or upgraded services
+                        
+            • **Personal Outreach**: Schedule a call with customer success team
+                        
+            • **Targeted Campaign**: Include in high-risk retention campaign
+                        
+            • **Deep Dive Analysis**: Review customer journey and pain points
+                        
+            • **Loyalty Program**: Enroll in premium loyalty benefits
             """)
         else:
             st.success("**Low Churn Risk - Customer is Stable**")
             st.markdown("""
             #### Maintenance Actions:
-            - ⭐ **Regular Engagement**: Continue current communication strategy
-            - 📧 **Satisfaction Surveys**: Periodic check-ins on experience
-            - 🎉 **Reward Loyalty**: Recognize and appreciate their business
-            - 📈 **Upsell Opportunities**: Introduce relevant new products
-            - 🔄 **Monitor Changes**: Watch for any behavioral shifts
+            • **Regular Engagement**: Continue current communication strategy
+                        
+            • **Satisfaction Surveys**: Periodic check-ins on experience
+                        
+            • **Reward Loyalty**: Recognize and appreciate their business
+                        
+            • **Upsell Opportunities**: Introduce relevant new products
+                        
+            • **Monitor Changes**: Watch for any behavioral shifts
             """)
         
-        st.info("💡 **Tip**: Navigate to the SHAP Analysis page to understand which factors are driving this prediction.")
+        st.info("**Tip**: Navigate to the SHAP Analysis page to understand which factors are driving this prediction.")
 
 # SHAP ANALYSIS PAGE
-elif page == "📊 SHAP Analysis":
-    st.title("📊 SHAP Analysis Dashboard")
+elif page == "SHAP Analysis":
+    st.title("SHAP Analysis Dashboard")
     st.markdown("### Explainable AI - Understanding Model Predictions")
     
     if 'last_prediction' not in st.session_state:
-        st.warning("⚠️ No prediction data available. Please make a prediction first on the Prediction page.")
+        st.warning("No prediction data available. Please make a prediction first on the Prediction page.")
         if st.button("Go to Prediction Page"):
-            st.session_state.page = "🔮 Prediction"
+            st.session_state.page = "Prediction"
             st.rerun()
     else:
-        st.success("✅ Analyzing the last prediction made")
+        st.success("Analyzing the last prediction made")
         
         # Display customer info
         customer_info = st.session_state.last_prediction['customer_info']
@@ -389,7 +482,7 @@ elif page == "📊 SHAP Analysis":
         st.markdown("---")
         
         # Create SHAP-like feature importance visualization
-        st.markdown("### 🎯 Feature Impact Analysis")
+        st.markdown("### Feature Impact Analysis")
         
         # Simulate feature importance (in production, you'd calculate actual SHAP values)
         features = [
@@ -450,7 +543,7 @@ elif page == "📊 SHAP Analysis":
         feature_impacts = [x[1] for x in impacts]
         feature_values = [x[2] for x in impacts]
         
-        colors = ['red' if x > 0 else 'green' for x in feature_impacts]
+        colors = ['#ff4444' if x > 0 else '#00C851' for x in feature_impacts]
         
         fig = go.Figure(go.Bar(
             x=feature_impacts,
@@ -458,81 +551,153 @@ elif page == "📊 SHAP Analysis":
             orientation='h',
             marker=dict(
                 color=colors,
-                line=dict(color='rgb(8,48,107)', width=1.5)
+                line=dict(color='rgba(0,0,0,0.3)', width=2)
             ),
-            text=[f"{v} ({i:+.2f})" for v, i in zip(feature_values, feature_impacts)],
-            textposition='auto',
+            text=[f"<b>{v}</b><br>Impact: {i:+.2f}" for v, i in zip(feature_values, feature_impacts)],
+            textposition='outside',
+            textfont=dict(size=12, color='black'),
+            hovertemplate='<b>%{y}</b><br>Value: %{text}<br>Impact: %{x:.2f}<extra></extra>'
         ))
         
         fig.update_layout(
-            title="Feature Impact on Churn Prediction (SHAP-like Analysis)",
+            title={
+                'text': "Feature Impact on Churn Prediction (SHAP-like Analysis)",
+                'font': {'size': 20, 'color': '#2c3e50', 'family': 'Arial'},
+                'x': 0.5,
+                'xanchor': 'center'
+            },
             xaxis_title="Impact on Churn Probability",
             yaxis_title="Features",
             height=600,
             showlegend=False,
-            xaxis=dict(zeroline=True, zerolinewidth=2, zerolinecolor='black'),
-            plot_bgcolor='white',
-            paper_bgcolor='white'
+            xaxis=dict(
+                zeroline=True, 
+                zerolinewidth=3, 
+                zerolinecolor='black',
+                gridcolor='rgba(128,128,128,0.2)',
+                title_font=dict(size=14, color='#2c3e50'),
+                tickfont=dict(size=12, color='#2c3e50')
+            ),
+            yaxis=dict(
+                title_font=dict(size=14, color='#2c3e50'),
+                tickfont=dict(size=13, color='#2c3e50', family='Arial')
+            ),
+            plot_bgcolor='#f8f9fa',
+            paper_bgcolor='white',
+            margin=dict(l=150, r=150, t=80, b=80)
         )
         
-        fig.add_vline(x=0, line_width=2, line_dash="dash", line_color="black")
+        fig.add_vline(x=0, line_width=3, line_dash="solid", line_color="black")
+        
+        # Add annotations for positive and negative impacts
+        fig.add_annotation(
+            x=max(feature_impacts) * 0.7,
+            y=len(feature_names) - 0.5,
+            text="<b>Increases Churn Risk →</b>",
+            showarrow=False,
+            font=dict(size=12, color='#ff4444'),
+            bgcolor='rgba(255,68,68,0.1)',
+            borderpad=4
+        )
+        
+        fig.add_annotation(
+            x=min(feature_impacts) * 0.7,
+            y=len(feature_names) - 0.5,
+            text="<b>← Decreases Churn Risk</b>",
+            showarrow=False,
+            font=dict(size=12, color='#00C851'),
+            bgcolor='rgba(0,200,81,0.1)',
+            borderpad=4
+        )
         
         st.plotly_chart(fig, use_container_width=True)
         
         # Interpretation
-        st.markdown("### 🔍 Interpretation Guide")
+        st.markdown("### Interpretation Guide")
         
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("""
-            #### 🔴 Factors Increasing Churn Risk
+            #### Factors Increasing Churn Risk
             Features pushing the prediction towards churn:
             """)
             increasing_factors = [(name, val, desc) for name, val, desc in impacts if val > 0]
             for name, val, desc in increasing_factors[:3]:
-                st.markdown(f"- **{name}**: {desc} (+{val:.2f})")
+                st.markdown(f"• **{name}**: {desc} (+{val:.2f})")
         
         with col2:
             st.markdown("""
-            #### 🟢 Factors Decreasing Churn Risk
+            #### Factors Decreasing Churn Risk
             Features reducing the likelihood of churn:
             """)
             decreasing_factors = [(name, val, desc) for name, val, desc in impacts if val < 0]
             for name, val, desc in decreasing_factors[:3]:
-                st.markdown(f"- **{name}**: {desc} ({val:.2f})")
+                st.markdown(f"• **{name}**: {desc} ({val:.2f})")
         
         st.markdown("---")
         
         # Feature importance pie chart
-        st.markdown("### 📈 Feature Importance Distribution")
+        st.markdown("### Feature Importance Distribution")
         
         abs_impacts = [abs(x) for x in feature_impacts]
         total_impact = sum(abs_impacts)
         percentages = [(x / total_impact) * 100 for x in abs_impacts]
         
+        # Create custom color palette
+        colors_pie = ['#667eea', '#f093fb', '#4facfe', '#43e97b', '#fa709a', 
+                      '#fee140', '#30cfd0', '#a8edea', '#ff6b6b', '#ffd93d']
+        
         fig_pie = go.Figure(data=[go.Pie(
             labels=feature_names,
             values=percentages,
-            hole=.3,
-            marker=dict(colors=px.colors.qualitative.Set3)
+            hole=.4,
+            marker=dict(
+                colors=colors_pie,
+                line=dict(color='white', width=2)
+            ),
+            textinfo='label+percent',
+            textfont=dict(size=12, color='white'),
+            hovertemplate='<b>%{label}</b><br>Importance: %{percent}<br><extra></extra>'
         )])
         
         fig_pie.update_layout(
-            title="Relative Feature Importance",
-            height=500
+            title={
+                'text': "Relative Feature Importance",
+                'font': {'size': 18, 'color': '#2c3e50'},
+                'x': 0.5,
+                'xanchor': 'center'
+            },
+            height=500,
+            paper_bgcolor='white',
+            plot_bgcolor='white',
+            showlegend=True,
+            legend=dict(
+                font=dict(size=11, color='#2c3e50'),
+                orientation="v",
+                yanchor="middle",
+                y=0.5,
+                xanchor="left",
+                x=1.02
+            )
         )
         
         st.plotly_chart(fig_pie, use_container_width=True)
         
-        st.info("""
-        **Note**: This analysis shows which features have the most influence on the churn prediction for this specific customer. 
-        Red bars indicate features that increase churn risk, while green bars indicate features that decrease it.
-        """)
+        st.markdown("""
+        <div style='background-color: #e3f2fd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2196f3; margin-top: 2rem;'>
+            <h4 style='color: #1976d2; margin-top: 0;'>* How to Read This Analysis</h4>
+            <p style='color: #0d47a1; margin-bottom: 0; line-height: 1.6;'>
+                <strong>Red bars pointing right (→)</strong>: Features that <strong>increase</strong> churn risk for this customer<br>
+                <strong>Green bars pointing left (←)</strong>: Features that <strong>decrease</strong> churn risk for this customer<br>
+                <strong>Bar length</strong>: Shows the strength of each feature's influence on the prediction
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ANALYTICS PAGE
-elif page == "📈 Analytics":
-    st.title("📈 Analytics Dashboard")
+elif page == "Analytics":
+    st.title("Analytics Dashboard")
     st.markdown("### Historical Data Analysis and Insights")
     
     # Load dataset
@@ -559,7 +724,7 @@ elif page == "📈 Analytics":
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("### 🌍 Churn Rate by Geography")
+            st.markdown("### Churn Rate by Geography")
             churn_by_geo = df.groupby('Geography')['Exited'].agg(['sum', 'count'])
             churn_by_geo['rate'] = (churn_by_geo['sum'] / churn_by_geo['count']) * 100
             
@@ -575,7 +740,7 @@ elif page == "📈 Analytics":
             st.plotly_chart(fig, use_container_width=True)
         
         with col2:
-            st.markdown("### 👥 Churn Rate by Gender")
+            st.markdown("### Churn Rate by Gender")
             churn_by_gender = df.groupby('Gender')['Exited'].agg(['sum', 'count'])
             churn_by_gender['rate'] = (churn_by_gender['sum'] / churn_by_gender['count']) * 100
             
@@ -589,7 +754,7 @@ elif page == "📈 Analytics":
             st.plotly_chart(fig, use_container_width=True)
         
         # Age distribution
-        st.markdown("### 📊 Age Distribution and Churn")
+        st.markdown("### Age Distribution and Churn")
         fig = px.histogram(
             df,
             x='Age',
@@ -606,7 +771,7 @@ elif page == "📈 Analytics":
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("### 💰 Balance Distribution")
+            st.markdown("### Balance Distribution")
             fig = px.box(
                 df,
                 x='Exited',
@@ -619,7 +784,7 @@ elif page == "📈 Analytics":
             st.plotly_chart(fig, use_container_width=True)
         
         with col2:
-            st.markdown("### 📦 Products vs Churn")
+            st.markdown("### Products vs Churn")
             product_churn = df.groupby('NumOfProducts')['Exited'].agg(['sum', 'count'])
             product_churn['rate'] = (product_churn['sum'] / product_churn['count']) * 100
             
@@ -634,7 +799,7 @@ elif page == "📈 Analytics":
             st.plotly_chart(fig, use_container_width=True)
         
         # Correlation heatmap
-        st.markdown("### 🔥 Feature Correlation Heatmap")
+        st.markdown("### Feature Correlation Heatmap")
         numeric_cols = ['CreditScore', 'Age', 'Tenure', 'Balance', 'NumOfProducts', 'EstimatedSalary', 'Exited']
         corr_matrix = df[numeric_cols].corr()
         
@@ -651,37 +816,37 @@ elif page == "📈 Analytics":
         st.error(f"Error loading analytics data: {str(e)}")
 
 # ABOUT PAGE
-elif page == "ℹ️ About":
-    st.title("ℹ️ About This Application")
+elif page == "About":
+    st.title("About This Application")
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
         st.markdown("""
-        ### 🎯 Purpose
+        ### Purpose
         
         This Customer Churn Prediction System helps businesses identify customers who are likely to leave, 
         enabling proactive retention strategies. By leveraging machine learning and explainable AI, 
         organizations can make data-driven decisions to improve customer satisfaction and reduce churn.
         
-        ### 🧠 Technology Stack
+        ### Technology Stack
         
-        - **Machine Learning**: TensorFlow/Keras Neural Network
-        - **Frontend**: Streamlit
-        - **Data Processing**: Pandas, NumPy, Scikit-learn
-        - **Visualization**: Plotly, Matplotlib
-        - **Explainability**: SHAP (SHapley Additive exPlanations)
+        • **Machine Learning**: TensorFlow/Keras Neural Network
+        • **Frontend**: Streamlit
+        • **Data Processing**: Pandas, NumPy, Scikit-learn
+        • **Visualization**: Plotly, Matplotlib
+        • **Explainability**: SHAP (SHapley Additive exPlanations)
         
-        ### 📊 Model Information
+        ### Model Information
         
-        - **Architecture**: Deep Neural Network
-        - **Training Data**: 10,000+ customer records
-        - **Features**: 12 customer attributes
-        - **Accuracy**: ~86%
-        - **Precision**: ~84%
-        - **Recall**: ~79%
+        • **Architecture**: Deep Neural Network
+        • **Training Data**: 10,000+ customer records
+        • **Features**: 12 customer attributes
+        • **Accuracy**: ~86%
+        • **Precision**: ~84%
+        • **Recall**: ~79%
         
-        ### 🔑 Key Features
+        ### Key Features
         
         1. **Real-time Predictions**: Instant churn probability calculation
         2. **SHAP Analysis**: Explainable AI showing feature importance
@@ -689,72 +854,29 @@ elif page == "ℹ️ About":
         4. **Actionable Insights**: Specific recommendations for each customer
         5. **Historical Analytics**: Understand patterns in your customer base
         
-        ### 📈 Use Cases
+        ### Use Cases
         
-        - **Banking**: Identify customers likely to close accounts
-        - **Telecom**: Predict subscription cancellations
-        - **SaaS**: Forecast customer downgrades or cancellations
-        - **Retail**: Anticipate customer defection to competitors
-        - **Insurance**: Predict policy non-renewals
+        • **Banking**: Identify customers likely to close accounts
+        • **Telecom**: Predict subscription cancellations
+        • **SaaS**: Forecast customer downgrades or cancellations
+        • **Retail**: Anticipate customer defection to competitors
+        • **Insurance**: Predict policy non-renewals
         
-        ### 🚀 Future Enhancements
+        ### Future Enhancements
         
-        - Batch prediction capability
-        - API integration for real-time scoring
-        - Advanced SHAP visualizations
-        - A/B testing framework for retention strategies
-        - Automated alert system for high-risk customers
+        • Batch prediction capability
+        • API integration for real-time scoring
+        • Advanced SHAP visualizations
+        • A/B testing framework for retention strategies
+        • Automated alert system for high-risk customers
         """)
     
-    with col2:
-        st.markdown("""
-        ### 📞 Contact & Support
-        
-        For questions or support:
-        - 📧 Email: support@company.com
-        - 🌐 Website: www.company.com
-        - 📱 Phone: +1 (555) 123-4567
-        
-        ### 📚 Resources
-        
-        - [User Guide](https://docs.company.com)
-        - [API Documentation](https://api.company.com)
-        - [Video Tutorials](https://learn.company.com)
-        
-        ### 🔒 Privacy & Security
-        
-        - All data is encrypted
-        - GDPR compliant
-        - SOC 2 Type II certified
-        - Regular security audits
-        
-        ### 📝 License
-        
-        Proprietary Software
-        © 2026 Company Name
-        All Rights Reserved
-        
-        ### 🏆 Recognition
-        
-        Winner of:
-        - Best AI Innovation 2025
-        - Customer Success Award
-        - Tech Excellence Prize
-        """)
-    
-    st.markdown("---")
-    st.markdown("""
-    <div style='text-align: center; padding: 2rem; background-color: #f8f9fa; border-radius: 0.5rem;'>
-        <h3>💡 Need Help Getting Started?</h3>
-        <p>Check out our interactive tutorial or contact our support team for personalized assistance.</p>
-    </div>
-    """, unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666; padding: 1rem;'>
-    <p>Customer Churn Prediction System v2.0 | Built with using Streamlit</p>
+    <p>Customer Churn Prediction System v2.0 | Built with Streamlit</p>
     <p>© 2026 All Rights Reserved | <a href='#'>Privacy Policy</a> | <a href='#'>Terms of Service</a></p>
 </div>
 """, unsafe_allow_html=True)
