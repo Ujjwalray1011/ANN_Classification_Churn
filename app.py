@@ -146,18 +146,8 @@ if page == "Home":
             flex-direction: column;
             justify-content: center;
             transition: transform 0.3s ease;
+            position: relative;
         ">
-            <div style="
-                width: 60px;
-                height: 60px;
-                background: rgba(255,255,255,0.2);
-                border-radius: 50%;
-                margin: 0 auto 1rem auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2rem;
-            ">🎯</div>
             <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">Accurate Predictions</h3>
             <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5;">
                 AI-powered model with 86% accuracy in predicting customer churn
@@ -178,18 +168,8 @@ if page == "Home":
             flex-direction: column;
             justify-content: center;
             transition: transform 0.3s ease;
+            position: relative;
         ">
-            <div style="
-                width: 60px;
-                height: 60px;
-                background: rgba(255,255,255,0.2);
-                border-radius: 50%;
-                margin: 0 auto 1rem auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2rem;
-            ">📊</div>
             <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">SHAP Analysis</h3>
             <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5;">
                 Explainable AI to understand what drives churn predictions
@@ -210,18 +190,8 @@ if page == "Home":
             flex-direction: column;
             justify-content: center;
             transition: transform 0.3s ease;
+            position: relative;
         ">
-            <div style="
-                width: 60px;
-                height: 60px;
-                background: rgba(255,255,255,0.2);
-                border-radius: 50%;
-                margin: 0 auto 1rem auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2rem;
-            ">⚡</div>
             <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">Real-time Insights</h3>
             <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5;">
                 Instant predictions and actionable recommendations
@@ -832,43 +802,43 @@ elif page == "About":
         
         ### Technology Stack
         
-        • **Machine Learning**: TensorFlow/Keras Neural Network
-        • **Frontend**: Streamlit
-        • **Data Processing**: Pandas, NumPy, Scikit-learn
-        • **Visualization**: Plotly, Matplotlib
+        • **Machine Learning**: TensorFlow/Keras Neural Network  
+        • **Frontend**: Streamlit  
+        • **Data Processing**: Pandas, NumPy, Scikit-learn  
+        • **Visualization**: Plotly, Matplotlib  
         • **Explainability**: SHAP (SHapley Additive exPlanations)
         
         ### Model Information
         
-        • **Architecture**: Deep Neural Network
-        • **Training Data**: 10,000+ customer records
-        • **Features**: 12 customer attributes
-        • **Accuracy**: ~86%
-        • **Precision**: ~84%
+        • **Architecture**: Deep Neural Network  
+        • **Training Data**: 10,000+ customer records  
+        • **Features**: 12 customer attributes  
+        • **Accuracy**: ~86%  
+        • **Precision**: ~84%  
         • **Recall**: ~79%
         
         ### Key Features
         
-        1. **Real-time Predictions**: Instant churn probability calculation
-        2. **SHAP Analysis**: Explainable AI showing feature importance
-        3. **Interactive Dashboard**: Visualize customer data and trends
-        4. **Actionable Insights**: Specific recommendations for each customer
+        1. **Real-time Predictions**: Instant churn probability calculation  
+        2. **SHAP Analysis**: Explainable AI showing feature importance  
+        3. **Interactive Dashboard**: Visualize customer data and trends  
+        4. **Actionable Insights**: Specific recommendations for each customer  
         5. **Historical Analytics**: Understand patterns in your customer base
         
         ### Use Cases
         
-        • **Banking**: Identify customers likely to close accounts
-        • **Telecom**: Predict subscription cancellations
-        • **SaaS**: Forecast customer downgrades or cancellations
-        • **Retail**: Anticipate customer defection to competitors
+        • **Banking**: Identify customers likely to close accounts  
+        • **Telecom**: Predict subscription cancellations  
+        • **SaaS**: Forecast customer downgrades or cancellations  
+        • **Retail**: Anticipate customer defection to competitors  
         • **Insurance**: Predict policy non-renewals
         
         ### Future Enhancements
         
-        • Batch prediction capability
-        • API integration for real-time scoring
-        • Advanced SHAP visualizations
-        • A/B testing framework for retention strategies
+        • Batch prediction capability  
+        • API integration for real-time scoring  
+        • Advanced SHAP visualizations  
+        • A/B testing framework for retention strategies  
         • Automated alert system for high-risk customers
         """)
     
